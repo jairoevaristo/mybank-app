@@ -4,14 +4,19 @@ import {
   View,
   Text,
   StyleSheet,
-  TouchableOpacity,
 } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+
+import { PinComponent } from '../components/PinComponent';
 
 function Secure() {
   const pins = [1, 2, 3, 4, 5, 6];
 
   const [pinCount, setPinCount] = useState<number[]>([]);
+
+  function handleGetPinValue(item: number) {
+    setPinCount(state => [...state, item]);
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -24,7 +29,8 @@ function Secure() {
       <View style={styles.wrapper}>
         <Text style={styles.subtitle}>Enter yout PIN code</Text>
         <View style={styles.wrapperPinItem}>
-        {pins.map(pin => (
+        {
+          pins.map(pin => (
             <View style={styles.pinItem} key={pin}>
               { pinCount.length > 0 &&
                 <View style={styles.pinItemContent} /> 
@@ -43,6 +49,10 @@ function Secure() {
           <Text style={styles.pin}>
             Enter access PIN
           </Text>
+        </View>
+
+        <View>
+          <PinComponent pinValue={handleGetPinValue} />
         </View>
       </View>
     </SafeAreaView>

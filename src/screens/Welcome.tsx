@@ -16,7 +16,7 @@ function Welcome() {
   const navigation = useNavigation();
 
   function handlePinNavigation() {
-    navigation.navigate("Secure");
+    navigation.navigate('Secure');
   }
 
   return (
