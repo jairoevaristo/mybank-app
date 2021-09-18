@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 import {
   SafeAreaView,
   View,
@@ -8,15 +8,27 @@ import {
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import { PinComponent } from '../components/PinComponent';
+import { useNavigation } from '@react-navigation/core';
 
 function Secure() {
+  const navigation = useNavigation();
+
   const pins = [1, 2, 3, 4, 5, 6];
 
-  const [pinCount, setPinCount] = useState<number[]>([]);
+  const [pinCount, setPinCount] = useState<number>(0);
 
-  function handleGetPinValue(item: number) {
-    setPinCount(state => [...state, item]);
+  function handleGetPinValue(_: number | ReactNode, index: number) {
+    setPinCount(prev => (
+      index !== 10 ? prev + 1 : prev - 1
+    ))
   }
+
+  useEffect(() => {
+    if (pinCount === pins.length) {
+      setPinCount(0);
+      navigation.navigate("Transfer");
+    }
+  }, [pinCount]);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -32,8 +44,9 @@ function Secure() {
         {
           pins.map(pin => (
             <View style={styles.pinItem} key={pin}>
-              { pinCount.length > 0 &&
-                <View style={styles.pinItemContent} /> 
+              { pin <= pinCount 
+                ? <View style={styles.pinItemContent} /> 
+                : null
               }              
             </View>
         ))}

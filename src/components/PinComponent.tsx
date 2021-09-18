@@ -1,20 +1,33 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 type PinComponentProps = {
-  pinValue: (item: number) => void;
+  pinValue: (item: number | ReactNode, index: number) => void;
 }
 
 function PinComponent({ pinValue }: PinComponentProps) {
-  const pinNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+  const pinNumbers = [
+      '1',
+      '2',
+      '3',
+      '4',
+      '5',
+      '6',
+      '7',
+      '8',
+      '9',
+      '0',
+      <MaterialCommunityIcons name="arrow-left" size={24} color="#fff" />
+  ];
 
   return (
     <View style={styles.container}>
-      {pinNumbers.map(item => (
+      {pinNumbers.map((item, index) => (
         <TouchableOpacity
-          key={item}
+          key={index}
           style={styles.pinItem}
-          onPress={() => pinValue(item)}
+          onPress={() => pinValue(item, index)}
         >
           <Text style={{ color: "#ffff", fontSize: 18 }}>{item}</Text>
         </TouchableOpacity>
