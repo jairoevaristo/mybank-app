@@ -33,11 +33,11 @@ function Welcome() {
 
       <View>
         <Text style={styles.textFooter}>
-          Touch ID sensor for access to mybank {"\n"} account
+          O melhor lugar para realizar {"\n"} tranferências bancárias
         </Text>
 
         <Text style={styles.textFooterDescription}>
-          Please very your identify {"\n"} usign Touch ID
+          Transferências rápidas e sem {"\n"} sair de casa
         </Text>
 
         <TouchableOpacity
@@ -50,7 +50,7 @@ function Welcome() {
             size={16}
           />
           <Text style={styles.pin}>
-            Enter access PIN
+            Entre com o seu acesso PIN
           </Text>
         </TouchableOpacity>
       </View>
@@ -81,7 +81,9 @@ const styles = StyleSheet.create({
   textFooter: {
     textAlign: 'center',
     color: '#ffff',
-    fontSize: 18
+    fontSize: 24,
+    lineHeight: 36,
+    marginBottom: 10,
   },
   textFooterDescription: {
     textAlign: 'center',

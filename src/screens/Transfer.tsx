@@ -74,7 +74,7 @@ function Transfer() {
 
         <View style={styles.subText}>
           <Text style={styles.subTextInput}>
-            transfer amount to be made to {"\n"} Jairo Evaristo
+            Realizar transferência para {"\n"} Jairo Evaristo
           </Text>
         </View>
 
@@ -85,7 +85,7 @@ function Transfer() {
           style={styles.buttonSend}
           onPress={handleSendTransfer}
         >
-          <Text style={styles.textButtonSend}>Enter</Text>
+          <Text style={styles.textButtonSend}>Confirmar</Text>
         </TouchableOpacity>
       </View>
 
@@ -136,7 +136,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#131313',
-    position: 'relative'
   },
   header: {
     paddingTop: 50,
@@ -204,7 +203,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     position: 'absolute',
-    backgroundColor: 'rgba(0, 0, 0, 0.30)',
+    backgroundColor: 'rgba(0, 0, 0, 0.70)',
   }
 });
 

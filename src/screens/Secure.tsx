@@ -39,7 +39,6 @@ function Secure() {
       </View>
 
       <View style={styles.wrapper}>
-        <Text style={styles.subtitle}>Enter yout PIN code</Text>
         <View style={styles.wrapperPinItem}>
         {
           pins.map(pin => (
@@ -60,7 +59,7 @@ function Secure() {
             size={16}
           />
           <Text style={styles.pin}>
-            Enter access PIN
+            Entre com o acesso PIN
           </Text>
         </View>
 
@@ -92,11 +91,6 @@ const styles = StyleSheet.create({
     marginTop: 40,
     alignItems: 'center',
     justifyContent: 'center'
-  },
-  subtitle: {
-    color: '#ffff',
-    fontSize: 16,
-    marginBottom: 12
   },
   wrapperButtonPin: {
     marginTop: 15,
