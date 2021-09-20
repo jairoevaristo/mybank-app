@@ -112,7 +112,7 @@ function Transfer() {
         >
           <View style={{ flex: 1 }} />
           <ModalCard
-            text="Sua trasferencia foi realizada com sucesso." 
+            text="Sua trasferência foi realizada com sucesso." 
             title="Operação concluída"
             image={require('../assets/success.png')}
             close={handleCloseSuccess}
